@@ -74,7 +74,7 @@ sudo make install
     sudo apt install software-properties-common
     sudo add-apt-repository universe
     ```
-    添加ROS2的github仓库。**Github仓库需要较稳定的网络环境，如后续安装失败可寻找Gitee镜像**。
+    添加ROS2的github仓库。**Github仓库需要较稳定的网络环境，如后续安装失败可自行寻找Gitee镜像替换指令中的`Github`地址**。
     ```bash
     sudo apt update && sudo apt install curl -y
     export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
@@ -102,7 +102,7 @@ sudo apt install jstest-gtk libglfw3-dev libdart-external-lodepng-dev
 ### 1.2 获取代码与编译
 <a id="获取代码与编译"></a>
 
-由于`AimRT`依赖较多，建议使用`Gitee`镜像加速下载。**若在使用提供的`gitee`源环境变量仍出现网络不通情况可自行在`gitee`上寻找可用的`AimRT`镜像**。
+由于`AimRT`依赖较多，建议使用`Gitee`镜像加速下载。**若在使用仓库提供的`Gitee`源环境变量仍出现网络不通情况可自行在`Gitee`上寻找可用的`AimRT`镜像手动安装**。
 ```bash
 # 获取仓库代码
 git clone https://github.com/AgibotTech/agibot_x1_infer.git
@@ -139,9 +139,9 @@ cd build/
 注：仿真时，先将机器人切换至`ZERO`状态，然后点击`reset`让机器人站立，再切换至行走模式。
 1.  启动程序后，默认状态为`idle`。
 2.  按手柄上的`START`键切换到`idle`空闲状态。按手柄上的`BACK`键切换到`keep`保持状态
-3   按`B`键切换到`zero`归零状态。按`A`键切换到`stand`站立状态。按`X`键切换到`walk_leg`行走状态。按`Y`键切换到`walk_leg_arm`行走状态。
+3.  按`B`键切换到`zero`归零状态。按`A`键切换到`stand`站立状态。按`X`键切换到`walk_leg`行走状态。按`Y`键切换到`walk_leg_arm`行走状态。
 4.  在仿真界面中，点击`Reset`按钮，使机器人调整到站立准备姿态。
 5.  在行走模式下，按住 LB，同时：
   - 推动`左摇杆`控制机器人行走。
   - 推动`右摇杆`控制机器人转弯。
-5.  在任何状态，按 RB 键可以挥手 (需在 keep, stand, walk_leg 状态)。按 START 键可随时切回`idle`状态。
+6.  在任何状态，按 RB 键可以挥手 (需在 keep, stand, walk_leg 状态)。按 START 键可随时切回`idle`状态。
