@@ -9,20 +9,20 @@
 
 ---
 ## 目录
-- [1.推理软件（Infer）安装与运行]
-- [1.1 系统要求与依赖安装]
-- [1.1.1基础编译环境]
-- [1.1.2安装ROS2 Humble]
-- [1.1.3安装仿真环境依赖]
-- [1.2 获取代码与编译]
-- [1.3 运行仿真]
-- [1.4 手柄操控]
-- [2.模型训练（Train）安装与运行]
-- [2.1 环境配置]
-- [2.2 训练与评估]
-- [3 综合工作流程]
-- [4.常见问题]
-- [5.许可]
+- [1. 推理软件（Infer）安装与运行](#推理软件（Infer）安装与运行)
+- [1.1 系统要求与依赖安装](#系统要求与依赖安装)
+- [1.1.1 基础编译环境](#基础编译环境)
+- [1.1.2 安装ROS2 Humble](#安装ROS2-Humble)
+- [1.1.3 安装仿真环境依赖](#安装仿真环境依赖)
+- [1.2 获取代码与编译](#获取代码与编译)
+- [1.3 运行仿真](#运行仿真)
+- [1.4 手柄操控](#手柄操控)
+- [2. 模型训练（Train）安装与运行](#模型训练（Train）安装与运行)
+- [2.1 环境配置](#环境配置)
+- [2.2 训练与评估](#训练与评估)
+- [3 综合工作流程](#综合工作流程)
+- [4.常见问题](#常见问题)
+- [5.许可](#许可)
 
 ## 1.推理软件 (`infer`) 安装与运行
 
@@ -42,7 +42,7 @@
 - 安装[GCC-13](https://www.gnu.org/software/gcc/gcc-13/)。
 - 安装[cmake](https://cmake.org/download/)3.26以上版本。
 - 安装[ONNX Runtime](https://github.com/microsoft/onnxruntime)。
-'''bash
+```bash
 sudo apt update
 sudo apt install -y build-essential cmake git libprotobuf-dev protobuf-compiler
 
@@ -53,7 +53,7 @@ cd onnxruntime
 
 cd build/Linux/Release/
 sudo make install
-'''
+```
 
 #### 1.1.2 安装ROS2 Humble
 1.  **确保支持`UTF-8`**：
