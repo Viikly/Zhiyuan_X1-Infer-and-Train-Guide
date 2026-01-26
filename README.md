@@ -68,13 +68,13 @@ sudo make install
     sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
     export LANG=en_US.UTF-8
     ```
-2.  **添加ROS2 apt仓库**：
+2.  **添加`ROS2 apt`仓库**：
     确保`Ubuntu Universe repository`生效
     ```bash
     sudo apt install software-properties-common
     sudo add-apt-repository universe
     ```
-    添加ROS2的github仓库。**Github仓库需要较稳定的网络环境，如后续安装失败可自行寻找Gitee镜像替换指令中的`Github`地址**。
+    添加`ROS2`的`Github`仓库。**`Github`仓库需要较稳定的网络环境，如后续安装失败可自行寻找`Gitee`镜像替换指令中的`Github`地址**。
     ```bash
     sudo apt update && sudo apt install curl -y
     export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
