@@ -25,8 +25,10 @@
 - [5.许可](#许可)
 
 ## 1.推理软件 (`infer`) 安装与运行
+<a id="推理软件（Infer）安装与运行"></a>
 
 ### 1.1 系统要求与依赖安装
+<a id="系统要求与依赖安装"></a>
 
 ### 推荐配置
 | 组件 | 推荐配置 |
@@ -39,6 +41,7 @@
 | **存储** | 50 GB 可用空间的 SSD |
 
 #### 1.1.1 基础编译环境
+<a id="基础编译环境"></a>
 - 安装[GCC-13](https://www.gnu.org/software/gcc/gcc-13/)。
 - 安装[cmake](https://cmake.org/download/)3.26以上版本。
 - 安装[ONNX Runtime](https://github.com/microsoft/onnxruntime)。
@@ -56,6 +59,8 @@ sudo make install
 ```
 
 #### 1.1.2 安装ROS2 Humble
+<a id="安装ROS2-Humble"></a>
+
 1.  **确保支持`UTF-8`**：
     ```bash
     sudo apt update && sudo apt install locales
@@ -88,11 +93,15 @@ sudo make install
     ```
     
 #### 1.1.3 安装仿真环境依赖
+<a id="安装仿真环境依赖"></a>
+
 ```bash
 sudo apt install jstest-gtk libglfw3-dev libdart-external-lodepng-dev
 ```
 
 ### 1.2 获取代码与编译
+<a id="获取代码与编译"></a>
+
 由于`AimRT`依赖较多，建议使用`Gitee`镜像加速下载。**若在使用提供的`gitee`源环境变量仍出现网络不通情况可自行在`gitee`上寻找可用的`AimRT`镜像**。
 ```bash
 # 获取仓库代码
@@ -115,6 +124,8 @@ source /opt/ros/humble/setup.bash
 编译完成后，可执行文件位于`agibot_x1_infer/build/`目录下。
 
 ### 1.3 运行仿真
+<a id="运行仿真"></a>
+
 **在运行前请插入手柄手柄接收器**。若在AimRT图标出现前崩溃请确认前置环境依赖是否安装完善，若在AimRT图标出现后崩溃请确认是否插入手柄。
 ```bash
 cd build/
@@ -123,12 +134,14 @@ cd build/
 运行成功后有窗口打开并显示机器人仿真画面。
 
 ### 1.4 手柄操控
-注：仿真时，先将机器人切换至ZERO状态，然后点击`reset`让机器人站立，再切换至行走模式。
+<a id="手柄操控"></a>
+
+注：仿真时，先将机器人切换至`ZERO`状态，然后点击`reset`让机器人站立，再切换至行走模式。
 1.  启动程序后，默认状态为`idle`。
 2.  按手柄上的`START`键切换到`idle`空闲状态。按手柄上的`BACK`键切换到`keep`保持状态
 3   按`B`键切换到`zero`归零状态。按`A`键切换到`stand`站立状态。按`X`键切换到`walk_leg`行走状态。按`Y`键切换到`walk_leg_arm`行走状态。
-4.  在仿真界面中，点击 Reset 按钮，使机器人调整到站立准备姿态。
+4.  在仿真界面中，点击`Reset`按钮，使机器人调整到站立准备姿态。
 5.  在行走模式下，按住 LB，同时：
   - 推动`左摇杆`控制机器人行走。
   - 推动`右摇杆`控制机器人转弯。
-6.  在任何状态，按 RB 键可以挥手 (需在 keep, stand, walk_leg 状态)。按 START 键可随时切回 idle 状态。
+5.  在任何状态，按 RB 键可以挥手 (需在 keep, stand, walk_leg 状态)。按 START 键可随时切回`idle`状态。
