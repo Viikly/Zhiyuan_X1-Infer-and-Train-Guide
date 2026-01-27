@@ -10,16 +10,21 @@
 ---
 ## 目录
 - [1. 推理软件（Infer）安装与运行](#推理软件（Infer）安装与运行)
-- [1.1 系统要求与依赖安装](#系统要求与依赖安装)
-- [1.1.1 基础编译环境](#基础编译环境)
-- [1.1.2 安装ROS2 Humble](#安装ROS2-Humble)
-- [1.1.3 安装仿真环境依赖](#安装仿真环境依赖)
-- [1.2 获取代码与编译](#获取代码与编译)
-- [1.3 运行仿真](#运行仿真)
-- [1.4 手柄操控](#手柄操控)
-- [2. 模型训练（Train）安装与运行](#模型训练（Train）安装与运行)
-- [2.1 环境配置](#环境配置)
-- [2.2 训练与评估](#训练与评估)
+    - [1.1 系统要求与依赖安装](#系统要求与依赖安装)
+        - [1.1.1 基础编译环境](#基础编译环境)
+        - [1.1.2 安装ROS2 Humble](#安装ROS2-Humble)
+        - [1.1.3 安装仿真环境依赖](#安装仿真环境依赖)
+    - [1.2 获取代码与编译](#获取代码与编译)
+    - [1.3 运行仿真](#运行仿真)
+    - [1.4 手柄操控](#手柄操控)
+- [2. 模型训练（Train）安装与运行](#模型训练(Train)安装与运行)
+    - [2.1 环境配置](#环境配置)
+    - [2.2 模型训练](#模型训练)
+        - [2.2.1 开始训练](#开始训练)
+        - [2.2.2 回放](#回放)
+    - [2.3 模型导出](#模型导出)
+    - [2.4 Sim2Sim验证（使用MuJoCo）](#Sim2Sim验证使用MuJoCo)
+    - [2.5 训练时的手柄控制](#训练时的手柄控制)
 - [3 综合工作流程](#综合工作流程)
 - [4.常见问题](#常见问题)
 - [5.许可](#许可)
@@ -142,6 +147,67 @@ cd build/
 3.  按`B`键切换到`zero`归零状态。按`A`键切换到`stand`站立状态。按`X`键切换到`walk_leg`行走状态。按`Y`键切换到`walk_leg_arm`行走状态。
 4.  在仿真界面中，点击`Reset`按钮，使机器人调整到站立准备姿态。
 5.  在行走模式下，按住 LB，同时：
-  - 推动`左摇杆`控制机器人行走。
-  - 推动`右摇杆`控制机器人转弯。
+    - 推动`左摇杆`控制机器人行走。
+    - 推动`右摇杆`控制机器人转弯。
 6.  在任何状态，按 RB 键可以挥手 (需在 keep, stand, walk_leg 状态)。按 START 键可随时切回`idle`状态。
+
+## 2. 模型训练(Train)安装与运行
+<a id="模型训练(Train)安装与运行"></a>
+
+### 2.1 环境配置
+<a id="环境配置"></a>
+
+推荐使用`Conda`进行虚拟环境的配置:
+    1. 创建一个Python 3.8的虚拟环境:
+       - `conda create -n myenv python=3.8`
+    2 在环境中安装`pytorch 1.13`和`cuda-11.7`:
+       - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
+    3. 安装 numpy-1.23:
+       - `conda install numpy=1.23`
+    4. 安装 Isaac Gym:
+       - 下载并安装[Isaac Gym Preview 4](https://developer.nvidia.com/isaac-gym)
+       - 安装依赖`cd isaacgym/python && pip install -e .`
+       - 运行示例`cd python/examples && python 1080_balls_of_solitude.py`
+    5. 安装代码训练(Train)依赖:
+       - 克隆Train仓库`git clone https://github.com/AgibotTech/agibot_x1_train.git`
+       - 安装依赖`cd agibot_x1_train/ && pip install -e .`
+
+### 2.2 模型训练
+<a id="模型训练"></a>
+
+#### 2.2.1 开始训练
+<a id="开始训练"></a>
+
+`python scripts/train.py --task=x1_dh_stand --run_name=<your_run_name> --headless`
+     - --task: 任务名，对应 envs/ 目录下的配置
+     - --run_name: 本次训练运行的标识名称
+     - --headless: 无头模式（不显示GUI），适用于服务器训练
+     - 模型将保存在 logs/<experiment_name>/exported_data/<date_time>_<run_name>/ 目录下
+
+#### 2.2.2 回放
+<a id="回放"></a>
+
+`python scripts/play.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`
+观察模型在仿真中的表现
+
+### 2.3 模型导出
+<a id="模型导出"></a>
+
+训练完成后，需要将模型导出为推理软件可用的格式
+1. 导出 JIT 模型:
+   - `python scripts/export_policy_dh.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`
+3. 导出 ONNX 模型(用于infer):
+   - `python scripts/export_policy_dh.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`
+   - 导出的 ONNX 模型位于`log/exported_policies/<date_time>/`目录下。需要将其复制到 infer 工程配置文件中`policy_file`字段指定的路径
+
+### 2.4 Sim2Sim 验证（使用 MuJoCo）
+<a id="Sim2Sim验证使用MuJoCo"></a>
+
+`python scripts/sim2sim.py --task=x1_dh_stand --load_model /path/to/exported_policies/`
+用于在 MuJoCo 仿真器中验证策略的迁移性
+
+### 2.5 训练时的手柄控制
+<a id="训练时的手柄控制"></a>
+
+在运行`play.py`或`sim2sim.py`时，可以使用手柄控制机器人：
+- 按住`LB`同时转动摇杆可以控制机器人前后，左右和旋转。
