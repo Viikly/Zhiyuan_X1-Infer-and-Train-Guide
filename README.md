@@ -178,12 +178,11 @@ cd build/
 #### 2.2.1 开始训练
 <a id="开始训练"></a>
 
-`python scripts/train.py --task=x1_dh_stand --run_name=<your_run_name> --headless`。
-指令内容:
+`python scripts/train.py --task=x1_dh_stand --run_name=<your_run_name> --headless`
 - --task: 任务名，对应 envs/ 目录下的配置。
 - --run_name: 本次训练运行的标识名称。
 - --headless: 无头模式（不显示GUI），适用于服务器训练。
-模型将保存在 logs/<experiment_name>/exported_data/<date_time>_<run_name>/ 目录下。
+- 模型将保存在 logs/<experiment_name>/exported_data/<date_time>_<run_name>/ 目录下。
 
 #### 2.2.2 回放
 <a id="回放"></a>
