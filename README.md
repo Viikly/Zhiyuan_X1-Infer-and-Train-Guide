@@ -158,19 +158,19 @@ cd build/
 <a id="环境配置"></a>
 
 推荐使用`Conda`进行虚拟环境的配置:
-    1. 创建一个Python 3.8的虚拟环境:
-        - `conda create -n myenv python=3.8`
-    2. 在环境中安装`pytorch 1.13`和`cuda-11.7`:
-        - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
-    3. 安装 numpy-1.23:
-        - `conda install numpy=1.23`
-    4. 安装 Isaac Gym:
-        - 下载并安装[Isaac Gym Preview 4](https://developer.nvidia.com/isaac-gym)
-        - 安装依赖`cd isaacgym/python && pip install -e .`
-        - 运行示例`cd python/examples && python 1080_balls_of_solitude.py`
-    5. 安装代码训练(Train)依赖:
-        - 克隆Train仓库`git clone https://github.com/AgibotTech/agibot_x1_train.git`
-        - 安装依赖`cd agibot_x1_train/ && pip install -e .`
+1. 创建一个Python 3.8的虚拟环境:
+    - `conda create -n myenv python=3.8`
+2. 在环境中安装`pytorch 1.13`和`cuda-11.7`:
+    - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
+3. 安装 numpy-1.23:
+    - `conda install numpy=1.23`
+4. 安装 Isaac Gym:
+    - 下载并安装[Isaac Gym Preview 4](https://developer.nvidia.com/isaac-gym)
+    - 安装依赖`cd isaacgym/python && pip install -e .`
+    - 运行示例`cd python/examples && python 1080_balls_of_solitude.py`
+5. 安装代码训练(Train)依赖:
+    - 克隆Train仓库`git clone https://github.com/AgibotTech/agibot_x1_train.git`
+    - 安装依赖`cd agibot_x1_train/ && pip install -e .`
 
 ### 2.2 模型训练
 <a id="模型训练"></a>
@@ -180,9 +180,9 @@ cd build/
 
 `python scripts/train.py --task=x1_dh_stand --run_name=<your_run_name> --headless`。
 指令内容:
-    - --task: 任务名，对应 envs/ 目录下的配置。
-    - --run_name: 本次训练运行的标识名称。
-    - --headless: 无头模式（不显示GUI），适用于服务器训练。
+- --task: 任务名，对应 envs/ 目录下的配置。
+- --run_name: 本次训练运行的标识名称。
+- --headless: 无头模式（不显示GUI），适用于服务器训练。
 模型将保存在 logs/<experiment_name>/exported_data/<date_time>_<run_name>/ 目录下。
 
 #### 2.2.2 回放
