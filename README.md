@@ -159,18 +159,18 @@ cd build/
 
 推荐使用`Conda`进行虚拟环境的配置:
     1. 创建一个Python 3.8的虚拟环境:
-    - `conda create -n myenv python=3.8`。
+        - `conda create -n myenv python=3.8`
     2. 在环境中安装`pytorch 1.13`和`cuda-11.7`:
-        - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`。
+        - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
     3. 安装 numpy-1.23:
-        - `conda install numpy=1.23`。
+        - `conda install numpy=1.23`
     4. 安装 Isaac Gym:
-        - 下载并安装[Isaac Gym Preview 4](https://developer.nvidia.com/isaac-gym)。
-        - 安装依赖`cd isaacgym/python && pip install -e .`。
-        - 运行示例`cd python/examples && python 1080_balls_of_solitude.py`。
+        - 下载并安装[Isaac Gym Preview 4](https://developer.nvidia.com/isaac-gym)
+        - 安装依赖`cd isaacgym/python && pip install -e .`
+        - 运行示例`cd python/examples && python 1080_balls_of_solitude.py`
     5. 安装代码训练(Train)依赖:
-        - 克隆Train仓库`git clone https://github.com/AgibotTech/agibot_x1_train.git`。
-        - 安装依赖`cd agibot_x1_train/ && pip install -e .`。
+        - 克隆Train仓库`git clone https://github.com/AgibotTech/agibot_x1_train.git`
+        - 安装依赖`cd agibot_x1_train/ && pip install -e .`
 
 ### 2.2 模型训练
 <a id="模型训练"></a>
@@ -197,7 +197,7 @@ cd build/
 训练完成后，需要将模型导出为推理软件可用的格式
 1. 导出 JIT 模型:
    - `python scripts/export_policy_dh.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`。
-3. 导出 ONNX 模型(用于infer):
+2. 导出 ONNX 模型(用于infer):
    - `python scripts/export_policy_dh.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`。
    - 导出的 ONNX 模型位于`log/exported_policies/<date_time>/`目录下。需要将其复制到 infer 工程配置文件中`policy_file`字段指定的路径。
 
