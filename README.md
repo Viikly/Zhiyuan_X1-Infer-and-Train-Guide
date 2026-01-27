@@ -212,5 +212,5 @@ cd build/
 
 ## 3. 许可
 - 本指南采用 [MIT License](LICENSE) 许可。
-- 本教程所描述和引用的推理软件与训练代码 **[Agibot_X1_Infer](https://github.com/AgibotTech/agibot_x1_infer)** **[Agibot_X1_Train](https://github.com/AgibotTech/agibot_x1_train)**，其源代码与数据遵循其自身的开源许可证：**Mulan Permissive Software License，Version 2 (Mulan PSL v2)**。
+- 本教程所描述和引用的推理软件与训练代码来自 **[Agibot_X1_Infer](https://github.com/AgibotTech/agibot_x1_infer)**和**[Agibot_X1_Train](https://github.com/AgibotTech/agibot_x1_train)**，其源代码与数据遵循其自身的开源许可证：**Mulan Permissive Software License，Version 2 (Mulan PSL v2)**。
 - 重要声明：本指南根据官方文档和实践经验整理而成，仅供参考。实际操作中请结合官方最新文档，并严格遵守安全规范。作者不对因使用本指南造成的任何损失负责。
