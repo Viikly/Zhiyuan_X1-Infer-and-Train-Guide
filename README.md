@@ -159,7 +159,7 @@ cd build/
 
 推荐使用`Conda`进行虚拟环境的配置:
     1. 创建一个Python 3.8的虚拟环境:
-        - `conda create -n myenv python=3.8`。
+    - `conda create -n myenv python=3.8`。
     2. 在环境中安装`pytorch 1.13`和`cuda-11.7`:
         - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`。
     3. 安装 numpy-1.23:
