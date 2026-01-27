@@ -25,9 +25,7 @@
     - [2.3 模型导出](#模型导出)
     - [2.4 Sim2Sim验证（使用MuJoCo）](#Sim2Sim验证使用MuJoCo)
     - [2.5 训练时的手柄控制](#训练时的手柄控制)
-- [3 综合工作流程](#综合工作流程)
-- [4.常见问题](#常见问题)
-- [5.许可](#许可)
+- [3.许可](#许可)
 
 ## 1.推理软件 (`infer`) 安装与运行
 <a id="推理软件（Infer）安装与运行"></a>
@@ -211,3 +209,8 @@ cd build/
 
 在运行`play.py`或`sim2sim.py`时，可以使用手柄控制机器人：
 - 按住`LB`同时转动摇杆可以控制机器人前后，左右和旋转
+
+## 3. 许可
+- 本指南采用 [MIT License](LICENSE) 许可。
+- 本教程所描述和引用的推理软件与训练代码 **[Agibot_X1_Infer](https://github.com/AgibotTech/agibot_x1_infer)** **[Agibot_X1_Train](https://github.com/AgibotTech/agibot_x1_train)**，其源代码与数据遵循其自身的开源许可证：**Mulan Permissive Software License，Version 2 (Mulan PSL v2)**。
+- 重要声明：本指南根据官方文档和实践经验整理而成，仅供参考。实际操作中请结合官方最新文档，并严格遵守安全规范。作者不对因使用本指南造成的任何损失负责。
