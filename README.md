@@ -187,8 +187,8 @@ cd build/
 #### 2.2.2 回放
 <a id="回放"></a>
 
-观察模型在仿真中的表现
-`python scripts/play.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`
+观察模型在仿真中的表现:
+- `python scripts/play.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`
 
 ### 2.3 模型导出
 <a id="模型导出"></a>
@@ -203,8 +203,8 @@ cd build/
 ### 2.4 Sim2Sim 验证（使用 MuJoCo）
 <a id="Sim2Sim验证使用MuJoCo"></a>
 
-用于在`MuJoCo`仿真器中验证策略的迁移性
-`python scripts/sim2sim.py --task=x1_dh_stand --load_model /path/to/exported_policies/`
+用于在`MuJoCo`仿真器中验证策略的迁移性:
+- `python scripts/sim2sim.py --task=x1_dh_stand --load_model /path/to/exported_policies/`
 
 ### 2.5 训练时的手柄控制
 <a id="训练时的手柄控制"></a>
