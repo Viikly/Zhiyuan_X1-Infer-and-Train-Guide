@@ -138,8 +138,8 @@ cd build/
 
 ### 1.4 手柄操控
 <a id="手柄操控"></a>
-具体内容参见[手柄模块](https://github.com/AgibotTech/agibot_x1_infer/blob/main/doc/joy_stick_module/joy_stick_module.zh_CN.md)
-注：仿真时，先将机器人切换至`ZERO`状态，然后点击`reset`让机器人站立，再切换至行走模式。
+具体内容参见[手柄模块](https://github.com/AgibotTech/agibot_x1_infer/blob/main/doc/joy_stick_module/joy_stick_module.zh_CN.md)。
+**注：仿真时，先将机器人切换至`ZERO`状态，然后点击`reset`让机器人站立，再切换至行走模式**。
 1.  启动程序后，默认状态为`idle`。
 2.  按手柄上的`START`键切换到`idle`空闲状态。按手柄上的`BACK`键切换到`keep`保持状态
 3.  按`B`键切换到`zero`归零状态。按`A`键切换到`stand`站立状态。按`X`键切换到`walk_leg`行走状态。按`Y`键切换到`walk_leg_arm`行走状态。
