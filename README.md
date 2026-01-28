@@ -138,7 +138,7 @@ cd build/
 
 ### 1.4 手柄操控
 <a id="手柄操控"></a>
-
+具体内容参见[手柄模块](https://github.com/AgibotTech/agibot_x1_infer/blob/main/doc/joy_stick_module/joy_stick_module.zh_CN.md)
 注：仿真时，先将机器人切换至`ZERO`状态，然后点击`reset`让机器人站立，再切换至行走模式。
 1.  启动程序后，默认状态为`idle`。
 2.  按手柄上的`START`键切换到`idle`空闲状态。按手柄上的`BACK`键切换到`keep`保持状态
@@ -197,6 +197,7 @@ cd build/
 2. 导出`ONNX`模型(用于infer):
    - `python scripts/export_policy_dh.py --task=x1_dh_stand --load_run=<date_time>_<run_name>`。
    - 导出的`ONNX`模型位于`log/exported_policies/<date_time>/`目录下。需要将其复制到`infer`工程配置文件中`policy_file`字段指定的路径。
+   - 关于`ONNX`的具体配置可参见[RL控制模块](https://github.com/AgibotTech/agibot_x1_infer/blob/main/doc/rl_control_module/rl_control_module.zh_CN.md)
 
 ### 2.4 Sim2Sim 验证（使用 MuJoCo）
 <a id="Sim2Sim验证使用MuJoCo"></a>
@@ -209,8 +210,11 @@ cd build/
 
 在运行`play.py`或`sim2sim.py`时，可以使用手柄控制机器人：
 - 按住`LB`同时转动摇杆可以控制机器人前后，左右和旋转
+- 在[Agibot_X1_Train](https://github.com/AgibotTech/agibot_x1_train/blob/main/README.zh_CN.md)Readme文件的最后部分可见手柄使用图
 
 ## 3. 许可
+<a id="许可"></a>
+
 - 本指南采用 [MIT License](LICENSE) 许可。
 - 本教程所描述和引用的推理软件与训练代码来自 **[Agibot_X1_Infer](https://github.com/AgibotTech/agibot_x1_infer)**和**[Agibot_X1_Train](https://github.com/AgibotTech/agibot_x1_train)**，其源代码与数据遵循其自身的开源许可证：**Mulan Permissive Software License，Version 2 (Mulan PSL v2)**。
 - 重要声明：本指南根据官方文档和实践经验整理而成，仅供参考。实际操作中请结合官方最新文档，并严格遵守安全规范。作者不对因使用本指南造成的任何损失负责。
