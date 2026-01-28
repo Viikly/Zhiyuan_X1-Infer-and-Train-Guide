@@ -210,7 +210,7 @@ cd build/
 
 在运行`play.py`或`sim2sim.py`时，可以使用手柄控制机器人：
 - 按住`LB`同时转动摇杆可以控制机器人前后，左右和旋转
-- 在[Agibot_X1_Train](https://github.com/AgibotTech/agibot_x1_train/blob/main/README.zh_CN.md)Readme文件的最后部分可见手柄使用图
+- 在[Agibot_X1_Train_Readme文件](https://github.com/AgibotTech/agibot_x1_train/blob/main/README.zh_CN.md)最后部分可见手柄使用图
 
 ## 3. 许可
 <a id="许可"></a>
